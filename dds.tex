@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt]{article}
+
+%\usepackage{helvet}
+\usepackage{natbib}
+\usepackage{bibentry}
+
+\def\secsref#1#2{Sections~\ref{sec:#1}--\ref{sec:#2}}
+\def\figref#1{Figure~\ref{fig:#1}}
+\def\figlabel#1{\label{fig:#1}\label{p:#1}}
+\def\Tabref#1{Table~\ref{tab:#1}}
+\def\tabref#1{Table~\ref{tab:#1}}
+\def\tabsref#1#2{Tables~\ref{tab:#1}-\ref{tab:#2}}
+\def\figsref#1#2{Figures~\ref{fig:#1}-\ref{fig:#2}}
+\def\figrefand#1#2{Figures~\ref{fig:#1} and \ref{fig:#2}}
+\def\tablabel#1{\label{tab:#1}\label{p:#1}}
+\def\eqref#1{Eq.~\ref{eqn:#1}}
+\def\eqlabel#1{\label{eqn:#1}}
+\def\Secref#1{Abschnitt~\ref{sec:#1}}
+\def\seclabel#1{\label{sec:#1}\label{p:#1}}
+\def\secref#1{Section~\ref{sec:#1}}
+
+\title{The DDS WG at MIC}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Then, we could circulate them, explaining that, also based
+on the feedback
+from Bonnie and Alessandro, we identified reference in DS as
+a topic of
+common interest, but we think it's really worth, given all
+the good brains
+we are assembling, to face the most bleeding edge issue of
+how to represent
+referential phenomena in DS (if it's possible at all),
+rather than focusing
+on the important but less innovative questions of how to use
+evidence from
+DS for reference resolution.
+
+
+
+\section{Topics and questions}
+
+\paragraph{Reference as a component in DS.}
+
+\paragraph{DS as a component in larger frameworks dealing with reference.}
+
+\paragraph{Reference in the sense of the Pado/Baroni EMNLP paper.}
+
+\paragraph{Commonsense-based coreference.}
+Pretty much all Winograd schemas I've seen are examples of
+coreference that can be solved based on general commonsense
+knowledge, of the sort that distributional semantics should
+be good at capturing.
+
+\paragraph{DS models of slots.} Ji and Eisenstein paper.
+
+\paragraph{Maybe we do not need to do anything,
+  vectors/embeddings suffice?} Aurelie Herbelot paper.
+
+\paragraph{DS was never meant to be a theory of
+  everything. Is reference one of the phenomena that we
+  should not use DS to explain?}
+
+\section{Examples}
+
+\paragraph{Plain
+pronoun, where
+disambiguation really depends on context and not on generic
+conceptual
+properties}
+
+``The teacher entered the classroom.
+He looked scary.''
+
+How do we represent, in distributed terms, ``He looked
+scary'' in a way that
+captures the fact that it should entail: ``The teacher
+looked scary''.
+
+\paragraph{Definite vs indefinite.}
+
+How do we represent, distributionally/distributedly, the
+difference between:
+
+The teacher entered the classroom.
+
+and:
+
+A teacher entered the classroom.
+
+How does this representation changes if they are the first
+sentences in a
+text, or if they are uttered in a context in which we know
+that we are
+speaking of the classroom where Mr. Smith teaches?
+
+\paragraph{Proper nouns.}
+
+And finally, coming to proper names, how do we capture the
+relation between:
+
+A teacher entered the classroom.
+
+and:
+
+John entered the classroom.
+
+(Assuming Mr. Smith's first name is John).
+
+Perhaps, this last issue is just a matter of having enough
+training data
+for the specific John at hand, but still ``John'' seems to
+come with a set of
+presupposition that are different from those of ``a
+teacher'', and more like
+those of ``the teacher'': how do we handle this?
+
+\paragraph{Referentially identical: same or different
+  vectors?}
+The next and last example is actually from Gemma's MC
+project, so if we
+decide to use it we should credit it to her:
+
+The Beatles broke up in 1970.
+
+The best-selling band of the sixties broke up in 1970.
+
+Again, how do we capture the relation between these two
+sentences?
+
+
+\bibliography{buecher}
+\bibliographystyle{apalike}
+
+\end{document}
+
+
