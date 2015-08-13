@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 
+% Hinrich
 %\usepackage{helvet}
 \usepackage{natbib}
 \usepackage{bibentry}
@@ -19,22 +20,172 @@
 \def\seclabel#1{\label{sec:#1}\label{p:#1}}
 \def\secref#1{Section~\ref{sec:#1}}
 
-\title{The DDS WG at MIC}
+% Marco
+\usepackage{linguex}
+
+
+\title{The Working Group Formerly Known as Dynamic Distributional
+  Semantics at MIC}
 
 \begin{document}
 
 \maketitle
 
-\section{Topic}
-(Representation of) reference in distributional semantics
+\section{Motivation}
+\label{sec:motivation}
 
-Not a topic: how to use DS (as a component in other systems)
-to deal with reference
+Consider:
+
+\ex.\label{ex1} \a. The doctors are old.
+\b. The cucumbers are old.
+
+We expect a good Distributional Semantic (DS) model to build sensible
+representations of these two sentences. For example, the model should
+be able to capture how the subject noun disambiguates the predicative
+adjective, so that \Last[b] is very similar to \emph{``The cucumbers
+  are rotten''}, but \Last[a] is most definitely not a paraphrase of
+\emph{``The doctors are rotten.''} Consider next:
+
+\ex. \label{ex:discourse-context}
+\a. \a.I saw the doctors\ldots 
+    \b. I saw the cucumbers\ldots
+\z.
+\b.\label{ex:they-are-old} They are old.
+
+The interpretation of \Last[b] depends on whether it is a continuation
+of \Last[a-i] or \Last[a-ii]. It is not clear that DS would be able to
+construct an appropriate representation of \Last[b], e.g., one that is
+closer to \emph{``They are rotten''} only if \emph{they} refers to the
+cucumbers.
+
+Making sense of \Last[b] crucially depends on a notion of
+\emph{reference}.  Correctly interpreting \emph{they} requires
+referring to some entities that are currently in the universe of
+discourse of the unfolding conversation, e.g., a specific set of
+cucumbers. Reference to discourse entities is actually also needed to
+make full sense of the sentences in \LLast (\emph{which} doctors or
+cucumbers are we referring to?), but, there, at least predicate
+disambiguation (assigning the right sense to \emph{old}) can be
+performed by considering \emph{generic} properties of doctors and
+cucumbers (the latter are more likely to go bad than the former), that
+do not require considering the specific subsets of entities we are
+talking about.
+
+DS models, by extracting word meanings from large amount of text, can
+be very effective at capturing generic properties, but, for the same
+reason (word representations are averages across many contexts), they
+are not well-equipped to handle phenomena depending on specific
+reference (see Section \ref{sec:examples} for other phenomena of this
+sort).
+
+Still, the generic knowledge encoded in DS might provide evidence that
+can help to solve specific reference ambiguities. Consider:
+
+\ex. \a. The professors finally found the cucumbers\ldots
+\b. They were rotten.
+
+It is easy to think of approaches that could harness DS to decide that
+\emph{they} must refer to cucumbers. For this specific example,
+something as simple as measuring distributional similarity of
+\emph{professor/rotten} vs.~\emph{cucumber/rotten} might suffice. Of
+course, most real-life cases of coreference resolution require a much
+more sophisticated exploitation of DS-based cues (and in many cases DS
+will not suffice), but at least the issues at hand are clear: What
+kind of DS models are best for the task? How should DS-produced scores
+be integrated in a larger coreference system? Etc.
+
+We would like to use the opportunity offered by the symposium to
+instead focus most directly on the relation between DS and reference
+from the poing of view of a general theory of DS. That is, we are not
+going to discuss how to use DS evidence as a component in other
+systems that handle reference, but rather how to handle
+reference-related phenomena \emph{within} DS.
+
+\section{Examples}
+\label{sec:examples}
+
+To make the working group discussion concrete, we propose a number of
+examples we would like you to think of, and we invite you to add more
+to the list.
+
+\paragraph{Plain pronouns,} where disambiguation really depends on
+context and not on generic conceptual properties.
+
+\ex. \a. The teacher entered the classroom\ldots 
+\b. He looked scary.
+
+How do we build a distributional representation of \Last[b] that
+captures, e.g., the fact that it entails: \emph{``The teacher looked
+  scary''}?
+
+\paragraph{Definiteness.}
+
+How do we represent the difference between:
+
+\ex. \a. The teacher entered the classroom.
+\b. A teacher entered the classroom.
+
+How do the representations of these sentences change if, instead of
+being uttered out of context, they are produced while speaking of the
+classroom where Mr.~Smith teaches?
+
+\paragraph{Proper nouns.}
+
+Assuming Mr. Smith (the teacher) is called John, how do we capture the
+relation between:
+
+\ex. \a. A teacher entered the classroom.
+\b. The teacher entered the classroom.
+\c. John entered the classroom.
+
+How do we capture the fact that, given that we know which John we are
+talking about, \emph{John} in \Last[c] carries presuppositions that
+are more like those of \emph{``the teacher''} in \Last[b] than those
+of \emph{``a teacher''} in \Last[a]?
+
+\paragraph{Referentially identical: same or different
+  vectors? \emph{Sinn} or \emph{Bedeutung?}}
+
+The following example is from Gemma Boleda's ongoing Marie Curie
+project on DS and reference:
+
+\ex. \a. The Beatles broke up in 1970.
+\b. The best-selling band of the sixties broke up in 1970.
+
+
+
+%\section{Topic}
+% (Representation of) reference in distributional semantics
+
+% Not a topic: how to use DS (as a component in other systems)
+% to deal with reference
+
+\section{Questions}
+\label{sec:questions}
+
+We would like you to think about the previous examples (and of course
+more that you come up with) while pondering the following questions:
+
+\begin{enumerate}
+\item How do we \textbf{represent sentences} such as those in these
+  examples in DS?
+\item How do we \textbf{represent the broader discourse context} and
+  the entities it defines in DS?
+\item How do we \textbf{build such representations compositionally}?
+\item How do we \textbf{learn a reference-aware DS model} from the
+  data? From \textbf{which} data?
+\end{enumerate}
+
+Of course, we realize that a reasonable answer to these questions is
+that DS was never meant to handle reference, so that they should not
+even be asked. This is fair game for what we should discuss in the
+working group.
 
 
 \section{Subtopics and questions}
 
-
+\textbf{MB: I would not attempt to review the literature in this
+  document.}
 
 \paragraph{Commonsense-based coreference.}
 coreference that can be solved based on general commonsense
@@ -54,74 +205,6 @@ be good at capturing.
 \paragraph{Reference in the sense of the Pado/Baroni EMNLP
   paper.} But this is actually not about the reference that
 we define as the topic?
-
-
-\section{Examples}
-
-\paragraph{Plain
-pronoun, where
-disambiguation really depends on context and not on generic
-conceptual
-properties}
-
-``The teacher entered the classroom.
-He looked scary.''
-
-How do we represent, in distributed terms, ``He looked
-scary'' in a way that
-captures the fact that it should entail: ``The teacher
-looked scary''.
-
-\paragraph{Definite vs indefinite.}
-
-How do we represent, distributionally/distributedly, the
-difference between:
-
-The teacher entered the classroom.
-
-and:
-
-A teacher entered the classroom.
-
-How does this representation changes if they are the first
-sentences in a
-text, or if they are uttered in a context in which we know
-that we are
-speaking of the classroom where Mr. Smith teaches?
-
-\paragraph{Proper nouns.}
-
-And finally, coming to proper names, how do we capture the
-relation between:
-
-A teacher entered the classroom.
-
-and:
-
-John entered the classroom.
-
-(Assuming Mr. Smith's first name is John).
-
-Perhaps, this last issue is just a matter of having enough
-training data
-for the specific John at hand, but still ``John'' seems to
-come with a set of
-presupposition that are different from those of ``a
-teacher'', and more like
-those of ``the teacher'': how do we handle this?
-
-\paragraph{Referentially identical: same or different
-  vectors?}
-The next and last example is actually from Gemma's MC
-project, so if we
-decide to use it we should credit it to her:
-
-The Beatles broke up in 1970.
-
-The best-selling band of the sixties broke up in 1970.
-
-Again, how do we capture the relation between these two
-sentences?
 
 
 \section{Stuff that will be cut, but that I moved here, so
