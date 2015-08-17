@@ -96,10 +96,10 @@ be integrated in a larger coreference system? Etc.
 
 We would like to use the opportunity offered by the symposium to
 instead focus most directly on the relation between DS and reference
-from the point of view of a general theory of DS. That is, we are not
+from the point of view of a general theory of DS. \textbf{That is, we are not
 going to discuss how to use DS evidence as a component in other
 systems that handle reference, but rather how to handle
-reference-related phenomena \emph{within} DS.
+reference-related phenomena \emph{within} DS.}
 
 \section{Examples}
 \label{sec:examples}
@@ -114,18 +114,23 @@ context and not on generic conceptual properties.
 \ex. \a. The teacher entered the classroom\ldots 
 \b. He looked scary.
 
-How do we build a distributional representation of \Last[b] that
-captures, e.g., the fact that it entails: \emph{``The teacher looked
+How do we process \Last[b] in a DS framework such that,
+e.g.,  the
+fact is
+captured that it entails: \emph{``The teacher looked
   scary''}?
 
 \paragraph{Definiteness.}
 
-How do we represent the difference between:
+In a DS framework, how do we deal with
+the difference between:
 
 \ex. \a. The teacher entered the classroom.
 \b. A teacher entered the classroom.
 
-How do the representations of these sentences change if, instead of
+How do 
+we account for / model the fact that the meaning
+of these sentences changes if, instead of
 being uttered out of context, they are produced while speaking of the
 classroom where Mr.~Smith teaches?
 
@@ -167,13 +172,20 @@ We would like you to think about the previous examples (and of course
 more that you come up with) while pondering the following questions:
 
 \begin{enumerate}
-\item How do we \textbf{represent sentences} such as those in these
-  examples in DS?
 \item How do we \textbf{represent the broader discourse context} and
   the entities it defines in DS?
-\item How do we \textbf{build such representations compositionally}?
+\item How do we \textbf{build such discourse representations
+  compositionally and dynamically}?
 \item How do we \textbf{learn a reference-aware DS model} from the
   data? From \textbf{which} data?
+\item How do we \textbf{represent sentences} such as those in these
+  examples in DS?
+\item Actually, is \textbf{representing sentences} the right
+  approach or do alternatives exist in which 
+our DS model represents
+  the subpart of \textbf{discourse context that is necessary to
+  interpret subsequent discourse}, but does not represent
+  sentences as vectors?
 \end{enumerate}
 
 Of course, we realize that a reasonable answer to these questions is
@@ -182,36 +194,36 @@ even be asked. This is fair game for what we should discuss in the
 working group.
 
 
-\section{Subtopics and questions}
-
-\textbf{MB: I would not attempt to review the literature in this
-  document.}
-
-\paragraph{Commonsense-based coreference.}
-coreference that can be solved based on general commonsense
-knowledge, of the sort that distributional semantics should
-be good at capturing.
-(Winograd schemas)
-
-\paragraph{DS models of slots.} Ji and Eisenstein paper.
-
-\paragraph{Maybe we do not need to do anything,
-  vectors/embeddings suffice?} Aurelie Herbelot paper.
-
-\paragraph{DS was never meant to be a theory of
-  everything. Is reference one of the phenomena that we
-  should not use DS to explain?}
-
-\paragraph{Reference in the sense of the Pado/Baroni EMNLP
-  paper.} But this is actually not about the reference that
-we define as the topic?
-
-
-\section{Stuff that will be cut, but that I moved here, so
-  it is preserved}
-
-\bibliography{buecher}
-\bibliographystyle{apalike}
+%\section{Subtopics and questions}
+%
+%\textbf{MB: I would not attempt to review the literature in this
+%  document.}
+%
+%\paragraph{Commonsense-based coreference.}
+%coreference that can be solved based on general commonsense
+%knowledge, of the sort that distributional semantics should
+%be good at capturing.
+%(Winograd schemas)
+%
+%\paragraph{DS models of slots.} Ji and Eisenstein paper.
+%
+%\paragraph{Maybe we do not need to do anything,
+%  vectors/embeddings suffice?} Aurelie Herbelot paper.
+%
+%\paragraph{DS was never meant to be a theory of
+%  everything. Is reference one of the phenomena that we
+%  should not use DS to explain?}
+%
+%\paragraph{Reference in the sense of the Pado/Baroni EMNLP
+%  paper.} But this is actually not about the reference that
+%we define as the topic?
+%
+%
+%\section{Stuff that will be cut, but that I moved here, so
+%  it is preserved}
+%
+%\bibliography{buecher}
+%\bibliographystyle{apalike}
 
 \end{document}
 
